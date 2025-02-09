@@ -1,12 +1,12 @@
 import './App.css'
-import UserDashboard from "./Components/UserDashboard/UserDashboard.jsx";
+import Home from "./Components/Home/Home.jsx";
 
 function App() {
 
 
   return (
     <>
-    <UserDashboard/>
+    <Home/>
     </>
   )
 }
