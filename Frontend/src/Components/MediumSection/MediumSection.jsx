@@ -85,6 +85,17 @@ const MediumSection = () => {
             setFeedbackMessage(null);
         }
     };
+    const handlePreviousSnippet = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+            setStartTime(null);
+            setElapsedTime(0);
+            setUserInput("");
+            setTimerRunning(false);
+            setError(null);
+            setFeedbackMessage(null);
+        }
+    };
 
     const averageCompletionTime = completionTimes.length > 0
         ? (completionTimes.reduce((acc, time) => acc + time, 0) / completionTimes.length).toFixed(2)
@@ -128,17 +139,25 @@ const MediumSection = () => {
                                 {feedbackMessage && <p className="text-green-500 mt-4">{feedbackMessage}</p>}
                             </div>
                         </div>
-                        <div className="flex justify-between mt-6">
-                            <button onClick={handleNextSnippet} className="px-8 py-3 bg-[#598392] hover:bg-[#124559] text-white rounded-lg transition-colors backdrop-blur-sm">
-                                Next Question
-                            </button>
-                            <div>
-                                <h3>Average Completion Time: {averageCompletionTime} seconds</h3>
-                                <a href="/difficult">
-                                    <button className="px-4 bg-[#598392] hover:bg-[#124559] text-white rounded-lg transition-colors backdrop-blur-sm">Move to Difficult Section</button>
-                                </a>
+
+
+                            <div className="flex justify-between mt-6">
+                                <button onClick={handlePreviousSnippet} disabled={currentIndex === 0} className={`px-6 py-3 rounded-lg transition-colors backdrop-blur-sm ${currentIndex === 0 ? "bg-gray-500 cursor-not-allowed" : "bg-[#598392] hover:bg-[#124559] text-white"}`}>
+                                    Back
+                                </button>
+                                {currentIndex + 1 < snippets.length ? (
+                                    <button onClick={handleNextSnippet} className="px-8 py-3 bg-[#598392] hover:bg-[#124559] text-white rounded-lg transition-colors backdrop-blur-sm">
+                                        Next Question
+                                    </button>
+                                ) : (
+                                    <div>
+                                        <h3>Average Completion Time: {averageCompletionTime} seconds</h3>
+                                        <a href="/medium">
+                                            <button className="px-4 bg-[#598392] hover:bg-[#124559] text-white rounded-lg transition-colors backdrop-blur-sm">Move to Difficult Section</button>
+                                        </a>
+                                    </div>)}
                             </div>
-                        </div>
+
                     </div>
                 ) : (
                     <p>No snippets found.</p>
