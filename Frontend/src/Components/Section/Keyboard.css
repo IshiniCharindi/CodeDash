@@ -1,0 +1,46 @@
+/* Keyboard Container */
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Keyboard Layout */
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    gap: 5px;
+    padding: 10px;
+    background: #ddd;
+    border-radius: 10px;
+}
+
+/* Key Styling */
+.key {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Active Key (Pressed) */
+.key.active {
+    background: #4285F4;
+    color: white;
+}
+
+/* Finger Image Styling */
+.finger-image {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
