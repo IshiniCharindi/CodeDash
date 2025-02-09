@@ -3,6 +3,8 @@ import React,{ useState } from 'react';
 import StatCard from './StatCard';
 import CodeSnippetList from './CodeSnippetList';
 import AddSnippetModal from './AddSnippetModal';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Navbar/Footer';
 
 const UserDashboard = () => {
     const [showModal, setShowModal] = useState(false);
@@ -15,7 +17,7 @@ const UserDashboard = () => {
         wpm: 75,
         accuracy: 98,
         comment: 'Average',
-        practiceTime: '2.5h',
+        practiceTime: '2.5',
         streakDays: 7,
         totalExercises: 124
       };
@@ -30,9 +32,12 @@ const UserDashboard = () => {
       <div className="fixed inset-0 bg-[#01161E] opacity-30 bg-[radial-gradient(circle_at_1px_1px,#124559_1px,transparent_0)] bg-[size:40px_40px] pointer-events-none"></div>
       
       {/* Header */}
-      <header className="sticky top-0 z-10 backdrop-blur-md bg-[#01161E]/80 border-b border-[#124559]/50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center p-6">
-          <h1 className="text-2xl font-bold text-[#EFF6E0]">CodeType Dashboard</h1>
+
+      <Navbar/>
+
+      {/* <header className="sticky top-0 z-10 backdrop-blur-md bg-[#01161E]/80 border-b border-[#124559]/50">
+        <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+          <img src="../src/images/logo.png" alt="Logo" className="w-40 h-12" />
           <div className="flex items-center gap-4">
             <span className="text-[#AEC3B0]">Welcome, John Doe</span>
             <img
@@ -42,7 +47,7 @@ const UserDashboard = () => {
             />
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto p-10 relative">
@@ -50,11 +55,11 @@ const UserDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-8 mb-8">
 
           <StatCard title="Comment" value={stats.comment}  />
-          <StatCard title="Accuracy" value={stats.accuracy} unit="%" />
+          {/* <StatCard title="Accuracy" value={stats.accuracy} unit="%" /> */}
            <StatCard title="Typing Speed" value={stats.wpm} unit="WPM" />
           <StatCard title="Practice Time" value={stats.practiceTime} unit="hours" />
           
-          <StatCard title="Exercises" value={stats.totalExercises} unit="total" />
+          {/* <StatCard title="Exercises" value={stats.totalExercises} unit="total" /> */}
         </div>
 
         
@@ -79,6 +84,8 @@ const UserDashboard = () => {
       {showModal && (
         <AddSnippetModal onClose={() => setShowModal(false)} onAdd={addSnippet} />
       )}
+
+      <Footer/>
     </div>
     );
 };
