@@ -46,4 +46,20 @@ private $conn;
         }
     }
 
+    public function getDifficultSnippets()
+    {
+        try {
+
+            $query = "SELECT id, code_snippet, average_time FROM code_snippets WHERE difficulty_level = 'Difficult'";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            $snippets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return json_encode($snippets);
+        } catch (PDOException $e) {
+            return json_encode(["error" => "Database error: " . $e->getMessage()]);
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import {
 import App from "./App.jsx";
 import EasySection from "./Components/EasySection/EasySection.jsx";
 import MediumSection from "./Components/MediumSection/MediumSection.jsx";
+import DifficultSection from "./Components/DifficultSection/DifficultSection.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
         path: '/medium',
         element: <MediumSection />,
+    },
+    {
+        path: '/difficult',
+        element: <DifficultSection />,
     },
 ]);
 

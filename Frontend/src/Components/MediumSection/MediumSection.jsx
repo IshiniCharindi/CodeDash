@@ -113,7 +113,7 @@ const MediumSection = () => {
                     ) : (
                         <div>
                             <h3>Average Completion Time: {averageCompletionTime} seconds</h3>
-                            <button>Move to Difficult Section</button>
+                            <a href="/difficult"><button>Move to Difficult Section</button></a>
                         </div>
                     )}
                 </div>
