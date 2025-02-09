@@ -5,11 +5,26 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import App from "./App.jsx";
+import UserDashboard from './Components/UserDashboard/UserDashboard.jsx';
+import HomePage from './Components/Home/HomePage.jsx';
+import PracticePage from './Components/Home/PracticePage.jsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+    },
+    {
+        path: '/dashboard',
+        element: <UserDashboard />,
+    },
+    {
+        path: '/home',
+        element: <HomePage />,
+    },
+    {
+        path: '/practice',
+        element: <PracticePage />,
     },
 ]);
 

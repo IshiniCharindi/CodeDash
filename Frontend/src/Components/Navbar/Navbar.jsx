@@ -8,7 +8,7 @@ function Navbar({ username }) {
         <div className="flex justify-between items-center h-16">
           {/* Left side: Logo and navigation links */}
           <div className="flex items-center space-x-4">
-            <Link to="/practice" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img
                 src="../src/images/logo.png"
                 alt="Logo"
@@ -17,10 +17,10 @@ function Navbar({ username }) {
             </Link>
             <div className="flex space-x-4">
               <Link
-                to="/practice"
+                to="/"
                 className="text-[#E0E1DD] hover:text-[#778DA9] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
-                Practice
+                Home
               </Link>
               <Link
                 to="/dashboard"
