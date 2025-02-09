@@ -4,7 +4,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 include_once __DIR__ . '/../Models/CodeSnippet.php';
 
-class EasyCodeSnippetViewController
+class MediumCodeSnippetViewController
 {
     private $codeSnippetModel;
 
@@ -13,13 +13,13 @@ class EasyCodeSnippetViewController
         $this->codeSnippetModel = new CodeSnippet();
     }
 
-    public function getEasySnippets()
+    public function getMediumSnippets()
     {
         header('Content-Type: application/json');
-        echo $this->codeSnippetModel->getEasySnippets();
+        echo $this->codeSnippetModel->getMediumSnippets();
     }
 }
 
-// Handle API request
-$controller = new EasyCodeSnippetViewController();
-$controller->getEasySnippets();
+
+$controller = new MediumCodeSnippetViewController();
+$controller->getMediumSnippets();

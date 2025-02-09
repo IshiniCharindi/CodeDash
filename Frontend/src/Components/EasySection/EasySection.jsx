@@ -123,7 +123,7 @@ const EasySection = () => {
                     ) : (
                         <div>
                             <h3>Average Completion Time: {averageCompletionTime} seconds</h3>
-                            <button>Move to Medium Section</button>
+                            <a href="/medium" ><button>Move to Medium Section</button></a>
                         </div>
                     )}
                 </div>

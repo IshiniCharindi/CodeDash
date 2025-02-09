@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import App from "./App.jsx";
 import EasySection from "./Components/EasySection/EasySection.jsx";
+import MediumSection from "./Components/MediumSection/MediumSection.jsx";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     {
         path: '/easy',
         element: <EasySection />,
+    },
+    {
+        path: '/medium',
+        element: <MediumSection />,
     },
 ]);
 
