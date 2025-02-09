@@ -1,23 +1,24 @@
 <?php
-class database
+class DbConnector
 {
-    private $hostName='localhost';
-    private $userName='root';
-    private $password='';
-    private $database='codedash';
+    private $host = 'localhost';
+    private $db_name = 'codedash';
+    private $username = 'root';
+    private $password = '';
+
     private $port = 3308;
 
-    public function dbConnect(){
-        $con = new mysqli($this->hostName, $this->userName, $this->password, $this->database, $this->port);
-
-        if($con->connect_error)
-        {
-            die ("<h1>Database Connection Failed</h1>");
+    public function dbConnect()
+    {
+        try {
+            $conn = new PDO("mysql:host=$this->host;dbname=$this->db_name;port=$this->port", $this->username, $this->password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+            return null;
         }
-
-        return $con;
     }
-
 }
 
 ?>
