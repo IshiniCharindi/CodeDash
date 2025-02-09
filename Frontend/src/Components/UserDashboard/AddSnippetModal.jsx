@@ -12,8 +12,8 @@ function AddSnippetModal({ onClose, onAdd }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-[#01161E]/90 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="backdrop-blur-md bg-[#01161E]/60 rounded-xl border border-[#124559]/50 p-6 w-full max-w-2xl shadow-2xl">
+    <div className="fixed inset-0 bg-[#415A77]/90 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="backdrop-blur-md bg-[#1B263B]/60 rounded-xl border border-[#124559]/50 p-6 w-full max-w-2xl shadow-2xl">
         <h2 className="text-xl font-semibold mb-4">Add New Code Snippet</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -22,7 +22,7 @@ function AddSnippetModal({ onClose, onAdd }) {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full p-2 rounded-lg bg-[#01161E]/80 text-[#EFF6E0] border border-[#124559]/50 focus:border-[#598392] transition-colors backdrop-blur-sm"
+              className="w-full p-2 rounded-lg bg-[#1B263B]/80 text-[#EFF6E0] border border-[#124559]/50 focus:border-[#598392] transition-colors backdrop-blur-sm"
               required
             />
           </div>
@@ -32,7 +32,7 @@ function AddSnippetModal({ onClose, onAdd }) {
               value={code}
               onChange={(e) => setCode(e.target.value)}
               rows="6"
-              className="w-full p-2 rounded-lg bg-[#01161E]/80 text-[#EFF6E0] border border-[#124559]/50 focus:border-[#598392] transition-colors backdrop-blur-sm font-mono"
+              className="w-full p-2 rounded-lg bg-[#1B263B]/80 text-[#EFF6E0] border border-[#124559]/50 focus:border-[#598392] transition-colors backdrop-blur-sm font-mono"
               required
             />
           </div>
@@ -40,13 +40,13 @@ function AddSnippetModal({ onClose, onAdd }) {
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-lg bg-[#01161E]/80 hover:bg-[#124559] transition-colors backdrop-blur-sm"
+              className="px-4 py-2 rounded-lg bg-[#0D1B2A]/80 border border-[#1B263B]/50 hover:bg-[#598392] transition-colors backdrop-blur-sm"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 rounded-lg bg-[#124559] hover:bg-[#598392] transition-colors backdrop-blur-sm"
+              className="px-4 py-2 rounded-lg bg-[#0D1B2A] border border-[#1B263B]/50 hover:bg-[#598392] transition-colors backdrop-blur-sm"
             >
               Add Snippet
             </button>
