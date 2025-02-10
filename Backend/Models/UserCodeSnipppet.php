@@ -64,6 +64,39 @@ class UserCodeSnipppet {
 
         return $pendingSnippets;
     }
+
+    public function updateStatus($id, $status) {
+        $query = "UPDATE $this->table_name SET status = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $status, $id);
+
+        if ($stmt->execute()) {
+            return ["message" => "Status updated successfully"];
+        } else {
+            return ["error" => "Failed to update status"];
+        }
+    }
+
+
+    public function moveCodeSnippet($id, $code, $coderName, $difficulty, $averageTime, $status) {
+        if ($status === "approved") {
+            // Insert into code_snippets table
+            $insertQuery = "INSERT INTO code_snippets (code_snippet, coder_name, difficulty_level, average_time) VALUES (?, ?, ?, ?)";
+            $insertStmt = $this->conn->prepare($insertQuery);
+            $insertStmt->bind_param("ssss", $code, $coderName, $difficulty, $averageTime);
+
+            if ($insertStmt->execute()) {
+                // Update the status in pending_codes table
+                return $this->updateStatus($id, "approved");
+            } else {
+                return ["error" => "Failed to move code"];
+            }
+        } elseif ($status === "rejected") {
+            return $this->updateStatus($id, "rejected");
+        } else {
+            return ["error" => "Invalid status"];
+        }
+    }
 }
 ?>
 
