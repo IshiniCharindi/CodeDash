@@ -9,29 +9,36 @@ error_reporting(E_ALL);
 
 include_once __DIR__ . '/../Models/CodeSnippet.php';
 include_once __DIR__ . '/../Models/userCompletion.php';
+include_once __DIR__ . '/../Models/saveFinalAVG.php';
 
 class TypingSpeedController
 {
     private $userCompletionModel;
     private $codeSnippetModel;
 
+    private $final;
+
     public function __construct()
     {
         $this->codeSnippetModel = new CodeSnippet();
         $this->userCompletionModel = new userCompletion();
+        $this->final = new saveFinalAVG();
+
+
     }
 
     public function getAverageTypingSpeed()
     {
+        $user_id = $_GET['user_id'];
 
         $easySpeed = $this->userCompletionModel->getAverageTimeForEasyLevel();
         $mediumSpeed = $this->userCompletionModel->getAverageTimeForMediumLevel();
         $difficultSpeed = $this->userCompletionModel->getAverageTimeForDifficultLevel();
-//        echo ($easySpeed);
+
         $easyWordCount = $this->codeSnippetModel->getEasySnippetsWithWordCount();
         $mediumWordCount = $this->codeSnippetModel->getMediumtSnippetsWithWordCount();
         $difficultWordCount = $this->codeSnippetModel->getDifficultSnippetsWithWordCount();
-//        echo ($easyWordCount);
+
 
         error_log("Fetched Speeds: Easy=$easySpeed, Medium=$mediumSpeed, Difficult=$difficultSpeed");
         error_log("Fetched Word Counts: Easy=$easyWordCount, Medium=$mediumWordCount, Difficult=$difficultWordCount");
@@ -44,8 +51,6 @@ class TypingSpeedController
         $easyWordCount = is_numeric($easyWordCount) ? floatval($easyWordCount) : 0;
         $mediumWordCount = is_numeric($mediumWordCount) ? floatval($mediumWordCount) : 0;
         $difficultWordCount = is_numeric($difficultWordCount) ? floatval($difficultWordCount) : 0;
-
-//        echo json_encode($easyWordCount, $mediumWordCount , $difficultWordCount);
 
 
 
@@ -66,6 +71,7 @@ class TypingSpeedController
         $totalAverageTypingSpeed = $validLevels ? ($easyAvgSpeed + $mediumAvgSpeed + $difficultAvgSpeed) / $validLevels : 0;
 
 
+
         error_log("Calculated WPM: Easy=$easyAvgSpeed, Medium=$mediumAvgSpeed, Difficult=$difficultAvgSpeed");
         error_log("Final Typing Speed: $totalAverageTypingSpeed");
 
@@ -76,3 +82,4 @@ class TypingSpeedController
 
 $controller = new TypingSpeedController();
 $controller->getAverageTypingSpeed();
+

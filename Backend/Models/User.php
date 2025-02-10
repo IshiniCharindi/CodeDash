@@ -64,15 +64,12 @@ class User
     }
 
     public function getUserIdByUsername($username) {
-        $stmt = $this->conn->prepare("SELECT user_id FROM userdetails WHERE username = ?");
-        $stmt->bind_param("s", $username);
+        $stmt = $this->conn->prepare("SELECT id FROM userdetails WHERE username = :username");
+        $stmt->bindParam(":username", $username);
         $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
 
-        if ($row = $result->fetch_assoc()) {
-            return $row["user_id"];
-        }
-        return null;
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ? $row["id"] : null;
     }
+
 }

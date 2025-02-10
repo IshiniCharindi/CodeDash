@@ -20,22 +20,35 @@ const UserDashboard = () => {
         const userSession = localStorage.getItem("username");
 
         if (userSession) {
-            const parsedUser = JSON.parse(userSession);
-            setUsername(parsedUser);
+            try {
+                const parsedUser = JSON.parse(userSession);
+                console.log("Parsed user data:", parsedUser);
 
-         
-            axios.post("http://localhost/CodeDash/Backend/Controllers/getUserId.php", {
-                username: parsedUser
-            })
-                .then(response => {
-                    if (response.data.status) {
-                        const fetchedUserId = response.data.user_id;
-                        setUserId(fetchedUserId);
-                    } else {
-                        console.error("User ID not found");
-                    }
-                })
-                .catch(error => console.error("Error fetching user ID:", error));
+                if (parsedUser?.username) {
+                    setUsername(parsedUser.username);
+
+                    // Send username to backend
+                    axios.post("http://localhost/CodeDash/Backend/Controllers/getUserId.php", {
+                        username: parsedUser.username
+                    })
+                        .then(response => {
+                            console.log("Backend response:", response.data); // Debugging
+
+                            if (response.data.status) {
+                                const fetchedUserId = response.data.user_id;
+                                setUserId(fetchedUserId);
+                                localStorage.setItem("user_id", fetchedUserId);
+                            } else {
+                                console.error("User ID not found");
+                            }
+                        })
+                        .catch(error => console.error("Error fetching user ID:", error));
+                } else {
+                    console.error("Username not found in localStorage data");
+                }
+            } catch (error) {
+                console.error("Error parsing localStorage data:", error);
+            }
         }
     }, []);
 
@@ -53,7 +66,7 @@ const UserDashboard = () => {
                     console.error("Error fetching snippets:", error);
                 });
 
-            axios.get('http://localhost/CodeDash/Backend/Controllers/TypingSpeedController.php')
+            axios.get(`http://localhost/CodeDash/Backend/Controllers/TypingSpeedController.php?user_id=${userId}`)
                 .then(response => {
                     if (typeof response.data === "string") {
                         console.error("Invalid JSON response:", response.data);

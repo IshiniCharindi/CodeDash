@@ -80,10 +80,10 @@ const EasySection = () => {
         }
 
         if (currentIndex + 1 === snippets.length) {
-            localStorage.setItem("user_id", "1");
+
 
             const userId = localStorage.getItem("user_id");
-            console.log(userId);
+
             const difficulty = "easy";
             const avgTime = averageCompletionTime;
 
@@ -140,8 +140,7 @@ const EasySection = () => {
                 </div>
                 {loading ? (
                     <p>Loading...</p>
-                // ) : error ? (
-                //     <p style={{ color: "red" }}>{error}</p>
+
                 ) : snippets.length > 0 ? (
                     <div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

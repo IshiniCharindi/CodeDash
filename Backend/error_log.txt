@@ -391,3 +391,40 @@ Stack trace:
 [10-Feb-2025 06:39:39 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
 [10-Feb-2025 06:39:39 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
 [10-Feb-2025 06:39:39 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 06:55:15 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 06:55:15 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 06:55:15 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 06:55:15 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 07:37:57 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 07:37:57 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 07:37:57 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 07:37:57 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 07:49:31 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 07:49:31 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 07:49:31 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 07:49:31 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 07:49:32 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 07:49:32 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 07:49:32 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 07:49:32 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 07:50:58 Europe/Berlin] Fetched Speeds: Easy=10, Medium=0, Difficult=0
+[10-Feb-2025 07:50:58 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 07:50:58 Europe/Berlin] Calculated WPM: Easy=0.135, Medium=0, Difficult=0
+[10-Feb-2025 07:50:58 Europe/Berlin] Final Typing Speed: 0.135
+[10-Feb-2025 07:58:55 Europe/Berlin] Fetched Speeds: Easy=10, Medium=0, Difficult=0
+[10-Feb-2025 07:58:55 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 07:58:55 Europe/Berlin] Calculated WPM: Easy=0.135, Medium=0, Difficult=0
+[10-Feb-2025 07:58:55 Europe/Berlin] Final Typing Speed: 0.135
+[10-Feb-2025 08:01:57 Europe/Berlin] Fetched Speeds: Easy=10, Medium=0, Difficult=0
+[10-Feb-2025 08:01:57 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 08:01:57 Europe/Berlin] Calculated WPM: Easy=0.135, Medium=0, Difficult=0
+[10-Feb-2025 08:01:57 Europe/Berlin] Final Typing Speed: 0.135
+[10-Feb-2025 08:18:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "saveFinalAVG" not found in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php:24
+Stack trace:
+#0 C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php(82): TypingSpeedController->__construct()
+#1 {main}
+  thrown in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php on line 24
+[10-Feb-2025 08:19:41 Europe/Berlin] Fetched Speeds: Easy=10, Medium=0, Difficult=0
+[10-Feb-2025 08:19:41 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 08:19:41 Europe/Berlin] Calculated WPM: Easy=0.135, Medium=0, Difficult=0
+[10-Feb-2025 08:19:41 Europe/Berlin] Final Typing Speed: 0.135

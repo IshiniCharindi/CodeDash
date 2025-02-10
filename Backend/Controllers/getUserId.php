@@ -17,6 +17,7 @@ class getUserId
         $data = json_decode(file_get_contents("php://input"), true);
 
         if (!isset($data['username'])) {
+            echo ($data['username']);
             echo json_encode(["status" => false, "message" => "Username not provided"]);
             exit;
         }
@@ -33,3 +34,5 @@ class getUserId
 
 
 }
+$controller = new getUserId();
+$controller->getUserId();
