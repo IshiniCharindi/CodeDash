@@ -62,7 +62,7 @@ private $conn;
         }
     }
 
-    private function getDifficultSnippetsWithWordCount()
+    public function getDifficultSnippetsWithWordCount()
     {
         try {
             $query = "SELECT id, code_snippet, average_time FROM code_snippets WHERE difficulty_level = 'Difficult' ";
@@ -88,7 +88,7 @@ private $conn;
         }
     }
 
-    private function getMediumtSnippetsWithWordCount()
+    public function getMediumtSnippetsWithWordCount()
     {
         try {
             $query = "SELECT id, code_snippet, average_time FROM code_snippets WHERE difficulty_level = 'Medium' ";
@@ -114,7 +114,7 @@ private $conn;
         }
     }
 
-    private function getEasySnippetsWithWordCount()
+    public function getEasySnippetsWithWordCount()
     {
         try {
             $query = "SELECT id, code_snippet, average_time FROM code_snippets WHERE difficulty_level = 'Easy' ";
