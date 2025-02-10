@@ -73,16 +73,18 @@ private $conn;
 
             // Calculate total word count
             $totalWordCount = 0;
-            $totaltime = 0;
+            $totalTime = 0;
             foreach ($snippets as $snippet) {
                 $totalWordCount += str_word_count($snippet['code_snippet']);
                 $totalTime += (int) $snippet['average_time'];
             }
 
-            return json_encode([
-                "total_word_count" => $totalWordCount,
-                "total_time" => $totalTime,
-            ]);
+            return json_encode($totalWordCount);
+
+//            return json_encode([
+//                "total_word_count" => $totalWordCount,
+//                "total_time" => $totalTime,
+//            ]);
         } catch (PDOException $e) {
             return json_encode(["error" => "Database error: " . $e->getMessage()]);
         }
@@ -99,16 +101,17 @@ private $conn;
 
             // Calculate total word count
             $totalWordCount = 0;
-            $totaltime = 0;
+            $totalTime = 0;
             foreach ($snippets as $snippet) {
                 $totalWordCount += str_word_count($snippet['code_snippet']);
                 $totalTime += (int) $snippet['average_time'];
             }
 
-            return json_encode([
-                "total_word_count" => $totalWordCount,
-                "total_time" => $totalTime,
-            ]);
+            return json_encode($totalWordCount);
+//            return json_encode([
+//                "total_word_count" => $totalWordCount,
+//                "total_time" => $totalTime,
+//            ]);
         } catch (PDOException $e) {
             return json_encode(["error" => "Database error: " . $e->getMessage()]);
         }
@@ -124,16 +127,18 @@ private $conn;
             $snippets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $totalWordCount = 0;
-            $totaltime = 0;
+            $totalTime = 0;
             foreach ($snippets as $snippet) {
                 $totalWordCount += str_word_count($snippet['code_snippet']);
                 $totalTime += (int) $snippet['average_time'];
             }
 
-            return json_encode([
-                "total_word_count" => $totalWordCount,
-                "total_time" => $totalTime,
-            ]);
+            return json_encode($totalWordCount);
+
+//            return json_encode([
+//                "total_word_count" => $totalWordCount,
+//                "total_time" => $totalTime,
+//            ]);
         } catch (PDOException $e) {
             return json_encode(["error" => "Database error: " . $e->getMessage()]);
         }

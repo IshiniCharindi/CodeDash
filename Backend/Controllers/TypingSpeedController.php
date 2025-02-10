@@ -3,6 +3,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../error_log.txt');
+error_reporting(E_ALL);
+
 include_once __DIR__ . '/../Models/CodeSnippet.php';
 include_once __DIR__ . '/../Models/userCompletion.php';
 
@@ -19,28 +23,54 @@ class TypingSpeedController
 
     public function getAverageTypingSpeed()
     {
-        $easySpeed = $this->userCompletionModel->getAverageTimeForEasyLevel() ?: 1;
-        $mediumSpeed = $this->userCompletionModel->getAverageTimeForMediumLevel() ?: 1;
-        $difficultSpeed = $this->userCompletionModel->getAverageTimeForDifficultLevel() ?: 1;
 
-        $easyWordCount = $this->codeSnippetModel->getEasySnippetsWithWordCount() ?: 0;
-        $mediumWordCount = $this->codeSnippetModel->getMediumSnippetsWithWordCount() ?: 0;
-        $difficultWordCount = $this->codeSnippetModel->getDifficultSnippetsWithWordCount() ?: 0;
+        $easySpeed = $this->userCompletionModel->getAverageTimeForEasyLevel();
+        $mediumSpeed = $this->userCompletionModel->getAverageTimeForMediumLevel();
+        $difficultSpeed = $this->userCompletionModel->getAverageTimeForDifficultLevel();
+//        echo ($easySpeed);
+        $easyWordCount = $this->codeSnippetModel->getEasySnippetsWithWordCount();
+        $mediumWordCount = $this->codeSnippetModel->getMediumtSnippetsWithWordCount();
+        $difficultWordCount = $this->codeSnippetModel->getDifficultSnippetsWithWordCount();
+//        echo ($easyWordCount);
+
+        error_log("Fetched Speeds: Easy=$easySpeed, Medium=$mediumSpeed, Difficult=$difficultSpeed");
+        error_log("Fetched Word Counts: Easy=$easyWordCount, Medium=$mediumWordCount, Difficult=$difficultWordCount");
 
 
-        $easyAvgSpeed = ($easyWordCount / $easySpeed) * 60;
-        $mediumAvgSpeed = ($mediumWordCount / $mediumSpeed) * 60;
-        $difficultAvgSpeed = ($difficultWordCount / $difficultSpeed) * 60;
+        $easySpeed = is_numeric($easySpeed) && $easySpeed > 0 ? floatval($easySpeed) : null;
+        $mediumSpeed = is_numeric($mediumSpeed) && $mediumSpeed > 0 ? floatval($mediumSpeed) : null;
+        $difficultSpeed = is_numeric($difficultSpeed) && $difficultSpeed > 0 ? floatval($difficultSpeed) : null;
+
+        $easyWordCount = is_numeric($easyWordCount) ? floatval($easyWordCount) : 0;
+        $mediumWordCount = is_numeric($mediumWordCount) ? floatval($mediumWordCount) : 0;
+        $difficultWordCount = is_numeric($difficultWordCount) ? floatval($difficultWordCount) : 0;
+
+//        echo json_encode($easyWordCount, $mediumWordCount , $difficultWordCount);
 
 
-        $totalLevels = ($easyAvgSpeed > 0) + ($mediumAvgSpeed > 0) + ($difficultAvgSpeed > 0);
-        $totalAverageTypingSpeed = $totalLevels ? ($easyAvgSpeed + $mediumAvgSpeed + $difficultAvgSpeed) / $totalLevels : 0;
 
-        $response = [
-            "totalAverageTypingSpeed" => round($totalAverageTypingSpeed, 2)  // Round for cleaner output
-        ];
+        if (!$easySpeed && !$mediumSpeed && !$difficultSpeed) {
+            echo json_encode(["error" => "Invalid speed values from database"]);
+            return;
+        }
 
-        echo json_encode($response);
+
+        $easyAvgSpeed = $easySpeed ? ($easyWordCount / $easySpeed) / 60 : 0;
+        $mediumAvgSpeed = $mediumSpeed ? ($mediumWordCount / $mediumSpeed) / 60 : 0;
+        $difficultAvgSpeed = $difficultSpeed ? ($difficultWordCount / $difficultSpeed) / 60 : 0;
+
+
+        $validLevels = ($easyAvgSpeed > 0) + ($mediumAvgSpeed > 0) + ($difficultAvgSpeed > 0);
+
+
+        $totalAverageTypingSpeed = $validLevels ? ($easyAvgSpeed + $mediumAvgSpeed + $difficultAvgSpeed) / $validLevels : 0;
+
+
+        error_log("Calculated WPM: Easy=$easyAvgSpeed, Medium=$mediumAvgSpeed, Difficult=$difficultAvgSpeed");
+        error_log("Final Typing Speed: $totalAverageTypingSpeed");
+
+
+        echo json_encode(["totalAverageTypingSpeed" => round($totalAverageTypingSpeed, 2)]);
     }
 }
 

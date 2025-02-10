@@ -1,0 +1,109 @@
+[10-Feb-2025 01:44:16 Europe/Berlin] PHP Warning:  Undefined variable $totalTime in C:\xampp1\htdocs\CodeDash\Backend\Models\CodeSnippet.php on line 130
+[10-Feb-2025 01:44:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method CodeSnippet::getMediumSnippetsWithWordCount() in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php:32
+Stack trace:
+#0 C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php(75): TypingSpeedController->getAverageTypingSpeed()
+#1 {main}
+  thrown in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php on line 32
+[10-Feb-2025 01:45:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method CodeSnippet::getMediumSnippetsWithWordCount() in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php:32
+Stack trace:
+#0 C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php(75): TypingSpeedController->getAverageTypingSpeed()
+#1 {main}
+  thrown in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php on line 32
+[10-Feb-2025 01:46:20 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:46:20 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:46:20 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:46:20 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:47:18 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:47:18 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:47:18 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:47:18 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:47:18 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:47:18 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:47:18 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:47:18 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:49:43 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:49:43 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:49:43 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:49:43 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:50:11 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: json_encode(): Argument #2 ($flags) must be of type int, string given in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php:34
+Stack trace:
+#0 C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php(34): json_encode('{"total_word_co...', '{"total_word_co...', '{"total_word_co...')
+#1 C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php(78): TypingSpeedController->getAverageTypingSpeed()
+#2 {main}
+  thrown in C:\xampp1\htdocs\CodeDash\Backend\Controllers\TypingSpeedController.php on line 34
+[10-Feb-2025 01:50:58 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:50:58 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:50:58 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:50:58 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:51:41 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:51:41 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:51:41 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:51:41 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:51:51 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:51:51 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:51:51 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:51:51 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:52:19 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:52:19 Europe/Berlin] Fetched Word Counts: Easy={"total_word_count":81,"total_time":48}, Medium={"total_word_count":202,"total_time":117}, Difficult={"total_word_count":456,"total_time":205}
+[10-Feb-2025 01:52:19 Europe/Berlin] Calculated WPM: Easy=0, Medium=0, Difficult=0
+[10-Feb-2025 01:52:19 Europe/Berlin] Final Typing Speed: 0
+[10-Feb-2025 01:56:01 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:01 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:01 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:01 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 01:56:06 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:06 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:06 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:06 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 01:56:06 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:06 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:06 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:06 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 01:56:39 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:39 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:39 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:39 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 01:56:48 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:48 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:48 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:48 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 01:56:52 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:52 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:52 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:52 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 01:56:52 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 01:56:52 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 01:56:52 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 01:56:52 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 02:00:38 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:00:38 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:00:38 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 02:00:38 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 02:00:38 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:00:38 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:00:38 Europe/Berlin] Calculated WPM: Easy=694.28571428571, Medium=550.90909090909, Difficult=1302.8571428571
+[10-Feb-2025 02:00:38 Europe/Berlin] Final Typing Speed: 849.35064935065
+[10-Feb-2025 02:04:30 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:04:30 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:04:30 Europe/Berlin] Calculated WPM: Easy=11.571428571429, Medium=9.1818181818182, Difficult=21.714285714286
+[10-Feb-2025 02:04:30 Europe/Berlin] Final Typing Speed: 14.155844155844
+[10-Feb-2025 02:04:30 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:04:30 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:04:30 Europe/Berlin] Calculated WPM: Easy=11.571428571429, Medium=9.1818181818182, Difficult=21.714285714286
+[10-Feb-2025 02:04:30 Europe/Berlin] Final Typing Speed: 14.155844155844
+[10-Feb-2025 02:07:21 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:07:21 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:07:21 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 02:07:21 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 02:07:21 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:07:21 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:07:21 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 02:07:21 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 02:09:41 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:09:41 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:09:41 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 02:09:41 Europe/Berlin] Final Typing Speed: 0.23593073593074
+[10-Feb-2025 02:11:02 Europe/Berlin] Fetched Speeds: Easy=7, Medium=22, Difficult=21
+[10-Feb-2025 02:11:02 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[10-Feb-2025 02:11:02 Europe/Berlin] Calculated WPM: Easy=0.19285714285714, Medium=0.1530303030303, Difficult=0.36190476190476
+[10-Feb-2025 02:11:02 Europe/Berlin] Final Typing Speed: 0.23593073593074
