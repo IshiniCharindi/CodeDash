@@ -9,6 +9,7 @@ import EasySection from "./Components/EasySection/EasySection.jsx";
 import MediumSection from "./Components/MediumSection/MediumSection.jsx";
 import DifficultSection from "./Components/DifficultSection/DifficultSection.jsx";
 import UserDashboard from "./Components/UserDashboard/UserDashboard.jsx";
+import Admin from "./Components/AdminPanel/Admin.jsx";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <UserDashboard />,
+    },
+    {
+        path: '/admin',
+        element: <Admin />,
     },
 ]);
 

@@ -50,6 +50,20 @@ class UserCodeSnipppet {
 
         return $snippets;
     }
+
+    public function getPendingCodeSnippetsWithUserNames() {
+        $query = "SELECT ucs.id, ucs.title, ucs.code, ucs.status, ud.name as user_name 
+                  FROM " . $this->table_name . " ucs
+                  INNER JOIN userdetails ud ON ucs.user_id = ud.id
+                  WHERE ucs.status = 'pending'";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        $pendingSnippets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $pendingSnippets;
+    }
 }
 ?>
 

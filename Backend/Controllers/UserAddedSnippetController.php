@@ -15,12 +15,10 @@ class UserAddedSnippetController
 
     public function addSnippet()
     {
-        // Get raw POST data
+
         $input = json_decode(file_get_contents('php://input'), true);
 
-//        echo ($_POST['user_id']);
-//        echo ($_POST['title']);
-//        echo ($_POST['code']);
+
         if (isset($input['user_id']) && isset($input['title']) && isset($input['code'])) {
             $userId = $input['user_id'];
             $title = $input['title'];

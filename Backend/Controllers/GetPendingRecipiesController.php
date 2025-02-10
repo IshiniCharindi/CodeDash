@@ -2,8 +2,9 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 include_once __DIR__ . '/../Models/UserCodeSnipppet.php';
-class getUserSnippetsController{
+class GetPendingRecipiesController{
     private $snippet;
 
     public function __construct()
@@ -11,17 +12,10 @@ class getUserSnippetsController{
         $this->snippet = new UserCodeSnipppet();
     }
 
-    public function getUserSnippet(){
-        $user_id = $_GET['user_id'];
-
-
-
-        $unserSnippets = $this->snippet->getUserSnippets($user_id);
-
-
-        echo json_encode(['snippets' => $unserSnippets]);
+    public function getPendingCodes(){
+        $adminSnippets = $this->snippet->getPendingCodeSnippetsWithUserNames();
+        echo json_encode(['snippets' => $adminSnippets]);
     }
-
 }
-$controller = new getUserSnippetsController();
-$controller->getUserSnippet();
+$controller = new GetPendingRecipiesController();
+$controller->getPendingCodes();
