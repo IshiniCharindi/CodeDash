@@ -60,6 +60,27 @@ const DifficultSection = () => {
         } else {
             setError("Your input does not match the expected code snippet. Please try again.");
         }
+
+        if (currentIndex + 1 === snippets.length) {
+            localStorage.setItem("user_id", "1");
+
+            const userId = localStorage.getItem("user_id");
+            console.log(userId);
+            const difficulty = "Difficult";
+            const avgTime = averageCompletionTime;
+
+            axios.post("http://localhost/CodeDash/Backend/Controllers/SaveCompletionTimeController.php", {
+                user_id: userId,
+                difficulty_level: difficulty,
+                avg_time: avgTime,
+            }, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(response => console.log(response.data))
+                .catch(error => console.error("Error saving completion time:", error));
+        }
     };
 
     const handleNextSnippet = () => {
