@@ -63,12 +63,13 @@ function Admin() {
         if (!selectedSubmission) return;
 
         try {
-            await axios.post('http://localhost/CodeDash/Backend/Controllers/MoveToSnippetsController.php', {
+            await axios.post('http://localhost/CodeDash/Backend/Controllers/MoveCodeController.php', {
                 id: selectedSubmission.id,
                 code: selectedSubmission.code,
                 coderName: selectedSubmission.user_name,
                 difficulty: selectedLevel,
                 averageTime: averageTime,
+                status: "approved",
             });
 
             setSubmissions(submissions.filter((s) => s.id !== selectedSubmission.id));
@@ -128,6 +129,75 @@ function Admin() {
                         </div>
                     </div>
                 </div>
+
+                {/* Code View Modal */}
+                {showCodeModal && selectedSubmission && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100]">
+                        <div className="bg-[#415A77] rounded-lg max-w-2xl w-full">
+                            <div className="flex justify-between items-center p-4 border-b border-[#1B263B]">
+                                <h3 className="text-xl font-bold text-[#E0E1DD]">Code Review</h3>
+                                <button
+                                    onClick={() => setShowCodeModal(false)}
+                                    className="text-[#E0E1DD] hover:text-[#778DA9]"
+                                >
+                                    <X size={24} />
+                                </button>
+                            </div>
+                            <div className="p-4">
+              <pre className="bg-[#1B263B] p-4 rounded text-[#E0E1DD] overflow-x-auto">
+                {selectedSubmission.code}
+              </pre>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Level Assignment Modal */}
+                {showLevelModal && selectedSubmission && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100]">
+                        <div className="bg-[#415A77] rounded-lg max-w-md w-full">
+                            <div className="flex justify-between items-center p-4 border-b border-[#1B263B]">
+                                <h3 className="text-xl font-bold text-[#E0E1DD]">Assign Level</h3>
+                                <button
+                                    onClick={() => setShowLevelModal(false)}
+                                    className="text-[#E0E1DD] hover:text-[#778DA9]"
+                                >
+                                    <X size={24} />
+                                </button>
+                            </div>
+                            <div className="p-4 space-y-4">
+                                <div>
+                                    <label className="block text-[#E0E1DD] mb-2">Difficulty Level</label>
+                                    <select
+                                        value={selectedLevel}
+                                        onChange={(e) => setSelectedLevel(e.target.value)}
+                                        className="w-full p-2 rounded bg-[#1B263B] text-[#E0E1DD] border border-[#778DA9] focus:outline-none focus:border-[#E0E1DD]"
+                                    >
+                                        <option value="easy">Easy</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="hard">Hard</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-[#E0E1DD] mb-2">Average Time (seconds)</label>
+                                    <input
+                                        type="number"
+                                        value={averageTime}
+                                        onChange={(e) => setAverageTime(e.target.value)}
+                                        className="w-full p-2 rounded bg-[#1B263B] text-[#E0E1DD] border border-[#778DA9] focus:outline-none focus:border-[#E0E1DD]"
+                                        placeholder="Enter time in minutes"
+                                    />
+                                </div>
+                                <button
+                                    onClick={handleLevelSubmit}
+                                    className="w-full px-4 py-2 bg-[#1B263B] text-[#E0E1DD] rounded hover:bg-[#0D1B2A] transition"
+                                >
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <Footer />
             </div>

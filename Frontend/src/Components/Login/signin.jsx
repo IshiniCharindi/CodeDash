@@ -146,7 +146,7 @@ function Signin() {
         <div className="text-center mt-4">
           <p className="text-[#778DA9]">
             Already have an account?{' '}
-            <Link to="/" className="text-[#E0E1DD] hover:underline">
+            <Link to="/login" className="text-[#E0E1DD] hover:underline">
               Log in
             </Link>
           </p>

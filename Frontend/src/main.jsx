@@ -10,11 +10,19 @@ import MediumSection from "./Components/MediumSection/MediumSection.jsx";
 import DifficultSection from "./Components/DifficultSection/DifficultSection.jsx";
 import UserDashboard from "./Components/UserDashboard/UserDashboard.jsx";
 import Admin from "./Components/AdminPanel/Admin.jsx";
+import Signin from "./Components/Login/signin.jsx";
+import Login from "./Components/Login/login.jsx";
+import Home from "./Components/Home/Home.jsx";
+// import {Home} from "lucide-react";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+    },
+    {
+        path: '/home',
+        element: <Home />,
     },
     {
         path: '/easy',
@@ -35,6 +43,14 @@ const router = createBrowserRouter([
     {
         path: '/admin',
         element: <Admin />,
+    },
+    {
+        path: "/signup",
+        element: <Signin />,
+    },
+    {
+        path: "/login",
+        element: <Login />,
     },
 ]);
 

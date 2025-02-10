@@ -9,69 +9,79 @@ import axios from "axios";
 const UserDashboard = () => {
     const [showModal, setShowModal] = useState(false);
     const [snippets, setSnippets] = useState([]);
+    const [userId, setUserId] = useState(null);
+    const [username, setUsername] = useState('');
     const [stats, setStats] = useState({
         wpm: 0,
         comment: 'Calculating...',
     });
 
     useEffect(() => {
-        axios.get('http://localhost/CodeDash/Backend/Controllers/TypingSpeedController.php')
-            .then(response => {
-                if (typeof response.data === "string") {
-                    console.error("Invalid JSON response:", response.data);
-                    return;
-                }
-                const wpm = response.data.totalAverageTypingSpeed || 0;
-                let comment = "Calculating...";
+        const userSession = localStorage.getItem("username");
 
-                if (wpm < 40) {
-                    comment = "Needs Improvement";
-                } else if (wpm >= 40 && wpm <= 50) {
-                    comment = "Average";
-                } else {
-                    comment = "Great";
-                }
+        if (userSession) {
+            const parsedUser = JSON.parse(userSession);
+            setUsername(parsedUser);
 
-                setStats({
-                    wpm,
-                    comment
-                });
+         
+            axios.post("http://localhost/CodeDash/Backend/Controllers/getUserId.php", {
+                username: parsedUser
             })
-            .catch(error => {
-                if (error.response) {
-                    console.error(`Server responded with status ${error.response.status}:`, error.response.data);
-                } else if (error.request) {
-                    console.error("No response received from the server:", error.request);
-                } else {
-                    console.error("Axios error:", error.message);
-                }
-            });
-
-        const userId = 1;  // Make sure to use the correct userId if necessary
-        axios.get(`http://localhost/CodeDash/Backend/Controllers/getUserSnippetsController.php?user_id=${userId}`)
-            .then(response => {
-                if (typeof response.data === "string") {
-                    console.error("Invalid JSON response:", response.data);
-                    return;
-                }
-
-                // Assuming the response has a data array with snippets
-                setSnippets(response.data.snippets || []);
-            })
-            .catch(error => {
-                if (error.response) {
-                    console.error(`Server responded with status ${error.response.status}:`, error.response.data);
-                } else if (error.request) {
-                    console.error("No response received from the server:", error.request);
-                } else {
-                    console.error("Axios error:", error.message);
-                }
-            });
+                .then(response => {
+                    if (response.data.status) {
+                        const fetchedUserId = response.data.user_id;
+                        setUserId(fetchedUserId);
+                    } else {
+                        console.error("User ID not found");
+                    }
+                })
+                .catch(error => console.error("Error fetching user ID:", error));
+        }
     }, []);
 
+    useEffect(() => {
+        if (userId) {
+            axios.get(`http://localhost/CodeDash/Backend/Controllers/getUserSnippetsController.php?user_id=${userId}`)
+                .then(response => {
+                    if (typeof response.data === "string") {
+                        console.error("Invalid JSON response:", response.data);
+                        return;
+                    }
+                    setSnippets(response.data.snippets || []);
+                })
+                .catch(error => {
+                    console.error("Error fetching snippets:", error);
+                });
+
+            axios.get('http://localhost/CodeDash/Backend/Controllers/TypingSpeedController.php')
+                .then(response => {
+                    if (typeof response.data === "string") {
+                        console.error("Invalid JSON response:", response.data);
+                        return;
+                    }
+                    const wpm = response.data.totalAverageTypingSpeed || 0;
+                    let comment = "Calculating...";
+
+                    if (wpm < 40) {
+                        comment = "Needs Improvement";
+                    } else if (wpm >= 40 && wpm <= 50) {
+                        comment = "Average";
+                    } else {
+                        comment = "Great";
+                    }
+
+                    setStats({ wpm, comment });
+                })
+                .catch(error => console.error("Error fetching typing speed:", error));
+        }
+    }, [userId]);
+
     const addSnippet = (newSnippet) => {
-        const userId = 1;
-        console.log(newSnippet);
+        if (!userId) {
+            console.error("User ID not available");
+            return;
+        }
+
         axios.post('http://localhost/CodeDash/Backend/Controllers/UserAddedSnippetController.php',
             {
                 user_id: userId,
@@ -84,17 +94,13 @@ const UserDashboard = () => {
                 }
             })
             .then(response => {
-                console.log(response.data);
                 if (response.data.status) {
-
                     setSnippets([...snippets, { id: Date.now(), ...newSnippet }]);
                     setShowModal(false);
                 } else {
-
                     console.error(response.data.message);
                 }
             })
-
             .catch(error => {
                 console.error('Error adding snippet:', error);
             });
@@ -135,7 +141,7 @@ const UserDashboard = () => {
                 </div>
             </main>
 
-            {/* Add Snippet Modal */}
+
             {showModal && (
                 <AddSnippetModal onClose={() => setShowModal(false)} onAdd={addSnippet} />
             )}

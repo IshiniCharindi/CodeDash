@@ -17,8 +17,15 @@ function Login() {
   
       const data = await response.json();
       if (data.status) {
+        localStorage.setItem("username", JSON.stringify({ username }));
+
         alert("Login successful");
-        navigate("/home"); // Redirect to the Home page
+        if (username.toLowerCase() === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/home");
+        }
+
       } else {
         alert("Invalid username or password");
       }
