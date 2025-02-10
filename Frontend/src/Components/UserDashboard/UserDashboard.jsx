@@ -8,37 +8,24 @@ import axios from "axios";
 
 const UserDashboard = () => {
     const [showModal, setShowModal] = useState(false);
-    const [snippets, setSnippets] = useState([
-        { id: 1, title: 'React Component', code: 'function Component() {\n  return <div>Hello</div>\n}' },
-        { id: 2, title: 'Array Map', code: 'const newArray = array.map(item => item * 2);' }
-    ]);
+    const [snippets, setSnippets] = useState([]);
     const [stats, setStats] = useState({
         wpm: 0,
         comment: 'Calculating...',
     });
 
+    // Fetch user's code snippets on component load
     useEffect(() => {
-        axios.get('http://localhost/CodeDash/Backend/Controllers/TypingSpeedController.php')
+        const userId = 1;  // Make sure to use the correct userId if necessary
+        axios.get(`http://localhost/CodeDash/Backend/Controllers/UserSnippetsController.php?user_id=${userId}`)
             .then(response => {
                 if (typeof response.data === "string") {
                     console.error("Invalid JSON response:", response.data);
                     return;
                 }
-                const wpm = response.data.totalAverageTypingSpeed || 0;
-                let comment = "Calculating...";
 
-                if (wpm < 40) {
-                    comment = "Needs Improvement";
-                } else if (wpm >= 40 && wpm <= 50) {
-                    comment = "Average";
-                } else {
-                    comment = "Great";
-                }
-
-                setStats({
-                    wpm,
-                    comment
-                });
+                // Assuming the response has a data array with snippets
+                setSnippets(response.data.snippets || []);
             })
             .catch(error => {
                 if (error.response) {
@@ -52,8 +39,31 @@ const UserDashboard = () => {
     }, []);
 
     const addSnippet = (newSnippet) => {
-        setSnippets([...snippets, { id: Date.now(), ...newSnippet }]);
-        setShowModal(false);
+        const userId = 1;
+        console.log(newSnippet);
+        axios.post('http://localhost/CodeDash/Backend/Controllers/UserAddedSnippetController.php',
+            {
+                user_id: userId,
+                title: newSnippet.title,
+                code: newSnippet.code,
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                console.log(response.data);
+                if (response.data.status) {
+                    setSnippets([...snippets, { id: Date.now(), ...newSnippet }]);
+                    setShowModal(false);
+                } else {
+                    console.error(response.data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error adding snippet:', error);
+            });
     };
 
     return (

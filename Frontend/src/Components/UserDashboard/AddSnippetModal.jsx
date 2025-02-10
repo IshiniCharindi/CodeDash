@@ -11,6 +11,9 @@ function AddSnippetModal({ onClose, onAdd }) {
     setCode('');
   };
 
+
+
+
   return (
     <div className="fixed inset-0 bg-[#415A77]/90 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="backdrop-blur-md bg-[#1B263B]/60 rounded-xl border border-[#124559]/50 p-6 w-full max-w-2xl shadow-2xl">
@@ -20,6 +23,7 @@ function AddSnippetModal({ onClose, onAdd }) {
             <label className="block text-sm font-medium mb-2">Title</label>
             <input
               type="text"
+              name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="w-full p-2 rounded-lg bg-[#1B263B]/80 text-[#EFF6E0] border border-[#124559]/50 focus:border-[#598392] transition-colors backdrop-blur-sm"
@@ -30,6 +34,7 @@ function AddSnippetModal({ onClose, onAdd }) {
             <label className="block text-sm font-medium mb-2">Code</label>
             <textarea
               value={code}
+              name="code"
               onChange={(e) => setCode(e.target.value)}
               rows="6"
               className="w-full p-2 rounded-lg bg-[#1B263B]/80 text-[#EFF6E0] border border-[#124559]/50 focus:border-[#598392] transition-colors backdrop-blur-sm font-mono"

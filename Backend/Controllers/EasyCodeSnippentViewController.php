@@ -20,6 +20,6 @@ class EasyCodeSnippetViewController
     }
 }
 
-// Handle API request
+
 $controller = new EasyCodeSnippetViewController();
 $controller->getEasySnippets();
