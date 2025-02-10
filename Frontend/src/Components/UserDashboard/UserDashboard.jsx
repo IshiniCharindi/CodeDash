@@ -14,10 +14,41 @@ const UserDashboard = () => {
         comment: 'Calculating...',
     });
 
-    // Fetch user's code snippets on component load
     useEffect(() => {
+        axios.get('http://localhost/CodeDash/Backend/Controllers/TypingSpeedController.php')
+            .then(response => {
+                if (typeof response.data === "string") {
+                    console.error("Invalid JSON response:", response.data);
+                    return;
+                }
+                const wpm = response.data.totalAverageTypingSpeed || 0;
+                let comment = "Calculating...";
+
+                if (wpm < 40) {
+                    comment = "Needs Improvement";
+                } else if (wpm >= 40 && wpm <= 50) {
+                    comment = "Average";
+                } else {
+                    comment = "Great";
+                }
+
+                setStats({
+                    wpm,
+                    comment
+                });
+            })
+            .catch(error => {
+                if (error.response) {
+                    console.error(`Server responded with status ${error.response.status}:`, error.response.data);
+                } else if (error.request) {
+                    console.error("No response received from the server:", error.request);
+                } else {
+                    console.error("Axios error:", error.message);
+                }
+            });
+
         const userId = 1;  // Make sure to use the correct userId if necessary
-        axios.get(`http://localhost/CodeDash/Backend/Controllers/UserSnippetsController.php?user_id=${userId}`)
+        axios.get(`http://localhost/CodeDash/Backend/Controllers/getUserSnippetsController.php?user_id=${userId}`)
             .then(response => {
                 if (typeof response.data === "string") {
                     console.error("Invalid JSON response:", response.data);
@@ -55,12 +86,15 @@ const UserDashboard = () => {
             .then(response => {
                 console.log(response.data);
                 if (response.data.status) {
+
                     setSnippets([...snippets, { id: Date.now(), ...newSnippet }]);
                     setShowModal(false);
                 } else {
+
                     console.error(response.data.message);
                 }
             })
+
             .catch(error => {
                 console.error('Error adding snippet:', error);
             });
