@@ -6,9 +6,7 @@ import Footer from "../Navbar/Footer.jsx";
 
 const EasySection = () => {
     const [snippets, setSnippets] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(() => {
-        return parseInt(localStorage.getItem("currentIndex")) || 0;
-    });
+    const [currentIndex, setCurrentIndex] = useState(0); // Always start from the first question
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [userInput, setUserInput] = useState("");
@@ -20,6 +18,9 @@ const EasySection = () => {
     const [dbAverageTime, setDbAverageTime] = useState(null);
 
     useEffect(() => {
+        // Reset currentIndex to 0 when the component mounts
+        setCurrentIndex(0);
+
         axios.get("http://localhost/CodeDash/Backend/Controllers/EasyCodeSnippentViewController.php")
             .then((response) => {
                 setSnippets(response.data);
@@ -30,7 +31,7 @@ const EasySection = () => {
                 setError("Failed to load code snippets.");
                 setLoading(false);
             });
-    }, []);
+    }, []); // Empty dependency array ensures this runs only on mount
 
     useEffect(() => {
         let timer;
@@ -80,10 +81,7 @@ const EasySection = () => {
         }
 
         if (currentIndex + 1 === snippets.length) {
-
-
             const userId = localStorage.getItem("user_id");
-
             const difficulty = "easy";
             const avgTime = averageCompletionTime;
 
@@ -134,13 +132,11 @@ const EasySection = () => {
             <div className="fixed inset-0 bg-[#01161E] opacity-30 bg-[radial-gradient(circle_at_1px_1px,#124559_1px,transparent_0)] bg-[size:40px_40px] pointer-events-none"></div>
             <Navbar />
             <main className="max-w-7xl mx-auto p-6">
-                {/*<h2>Easy Code Snippets</h2>*/}
                 <div className="text-center text-4xl text-white mb-8">
                     <h1>Time Spent: {elapsedTime} sec</h1>
                 </div>
                 {loading ? (
                     <p>Loading...</p>
-
                 ) : snippets.length > 0 ? (
                     <div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -185,14 +181,15 @@ const EasySection = () => {
                                     <a href="/medium">
                                         <button className="px-4 bg-[#598392] hover:bg-[#124559] text-white rounded-lg transition-colors backdrop-blur-sm">Move to Medium Section</button>
                                     </a>
-                                </div>)}
+                                </div>
+                            )}
                         </div>
                     </div>
                 ) : (
                     <p>No snippets found.</p>
                 )}
             </main>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

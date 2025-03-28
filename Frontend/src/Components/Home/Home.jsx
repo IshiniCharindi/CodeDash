@@ -91,16 +91,18 @@ function Home() {
         <>
             <div className="bg-gradient-to-br from-[#1B263B] to-[#1B263B] text-[#EFF6E0]">
                 <Navbar/>
-                <main className="max-w-7xl mx-auto p-6">
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold mb-4">Improve Your Coding Speed</h1>
-                        <p className="text-[#AEC3B0] text-lg">Choose your difficulty level and start practicing</p>
-                    </div>
+                <main className="max-w-7xl h-screen mx-auto p-6 relative">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+                        <div className="text-center mb-12">
+                            <h1 className="text-4xl font-bold mb-4">Improve Your Coding Speed</h1>
+                            <p className="text-[#AEC3B0] text-lg">Choose your difficulty level and start practicing</p>
+                        </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {difficultyLevels.map((level) => (
-                            <DifficultyCard key={level.title} level={level} />
-                        ))}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {difficultyLevels.map((level) => (
+                                <DifficultyCard key={level.title} level={level} />
+                            ))}
+                        </div>
                     </div>
                 </main>
                 <Footer/>

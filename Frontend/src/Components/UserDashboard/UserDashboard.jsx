@@ -36,6 +36,7 @@ const UserDashboard = () => {
 
                             if (response.data.status) {
                                 const fetchedUserId = response.data.user_id;
+                                console.log(response.data.user_id)
                                 setUserId(fetchedUserId);
                                 localStorage.setItem("user_id", fetchedUserId);
                             } else {
@@ -120,7 +121,7 @@ const UserDashboard = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#1B263B] to-[#1B263B] text-[#EFF6E0]">
+        <div className="bg-gradient-to-br from-[#1B263B] to-[#1B263B] text-[#EFF6E0]">
             {/* Background Pattern */}
             <div className="fixed inset-0 bg-[#01161E] opacity-30 bg-[radial-gradient(circle_at_1px_1px,#124559_1px,transparent_0)] bg-[size:40px_40px] pointer-events-none"></div>
 
@@ -128,7 +129,7 @@ const UserDashboard = () => {
             <Navbar />
 
             {/* Main Content */}
-            <main className="max-w-7xl mx-auto p-10 relative">
+            <main className="max-w-7xl mx-auto h-scree p-10 relative">
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-8 mb-8">
                     <div className="space-y-8">

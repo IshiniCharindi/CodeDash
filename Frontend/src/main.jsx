@@ -13,6 +13,7 @@ import Admin from "./Components/AdminPanel/Admin.jsx";
 import Signin from "./Components/Login/signin.jsx";
 import Login from "./Components/Login/login.jsx";
 import Home from "./Components/Home/Home.jsx";
+import Leaderboard from "./Components/LeaderBoard/Leaderboard.jsx";
 // import {Home} from "lucide-react";
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />,
+    },
+    {
+        path: "/leaderboard",
+        element: <Leaderboard/>,
     },
 ]);
 
