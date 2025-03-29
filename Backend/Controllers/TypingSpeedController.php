@@ -70,7 +70,7 @@ class TypingSpeedController
 
         $totalAverageTypingSpeed = $validLevels ? ($easyAvgSpeed + $mediumAvgSpeed + $difficultAvgSpeed) / $validLevels : 0;
 
-
+        $result = $this->final->saveFinalAverageTime($user_id, $totalAverageTypingSpeed);
 
         error_log("Calculated WPM: Easy=$easyAvgSpeed, Medium=$mediumAvgSpeed, Difficult=$difficultAvgSpeed");
         error_log("Final Typing Speed: $totalAverageTypingSpeed");

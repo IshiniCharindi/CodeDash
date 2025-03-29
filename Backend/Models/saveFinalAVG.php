@@ -29,4 +29,46 @@ class saveFinalAVG{
             return ["success" => false, "message" => "Database error: " . $e->getMessage()];
         }
     }
+
+    public function getTopTenUsers($limit = 10)
+    {
+        $query = "SELECT u.username, u.id, f.finalAvgTime as score 
+                  FROM finalaveragetime f
+                  JOIN userdetails u ON f.user_id = u.id
+                  ORDER BY f.finalAvgTime DESC
+                  LIMIT ?";
+
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $limit);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $leaderboard = [];
+        $rank = 1;
+        while ($row = $result->fetch_assoc()) {
+            $leaderboard[] = [
+                'id' => $rank++,
+                'user_id' => $row['id'],
+                'name' => $row['username'],
+                'score' => round($row['score'], 2),
+                'initials' => $this->getInitials($row['username'])
+            ];
+        }
+
+        return $leaderboard;
+    }
+    private function getInitials($name)
+    {
+        $names = explode(' ', $name);
+        $initials = '';
+
+        foreach ($names as $n) {
+            $initials .= strtoupper(substr($n, 0, 1));
+            if (strlen($initials) >= 2) break;
+        }
+
+        return $initials;
+    }
+
 }
