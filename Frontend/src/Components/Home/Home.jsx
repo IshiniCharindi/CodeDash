@@ -88,29 +88,28 @@ function DifficultyCard({ level }) {
 
 function Home() {
     return (
-        <>
-            <div className="bg-gradient-to-br from-[#1B263B] to-[#1B263B] text-[#EFF6E0]">
-                <Navbar/>
-                <main className="max-w-7xl h-screen mx-auto p-6 relative">
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
-                        <div className="text-center mb-12">
-                            <h1 className="text-4xl font-bold mb-4">Improve Your Coding Speed</h1>
-                            <p className="text-[#AEC3B0] text-lg">Choose your difficulty level and start practicing</p>
-                        </div>
+        <div className="bg-gradient-to-br from-[#1B263B] to-[#1B263B] text-[#EFF6E0] min-h-screen flex flex-col">
+            <Navbar />
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <main className="flex-1 flex flex-col">
+                <div className="container mx-auto px-4 py-8 flex-1 flex flex-col">
+                    <div className="text-center mb-8 mt-4 md:mt-8">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-2">Improve Your Coding Speed</h1>
+                        <p className="text-[#AEC3B0] text-base md:text-lg">Choose your difficulty level and start practicing</p>
+                    </div>
+
+                    <div className="flex-1 flex items-center justify-center">
+                        <div className="grid grid-cols-1 mb-20 md:grid-cols-3 gap-6 w-full max-w-7xl">
                             {difficultyLevels.map((level) => (
                                 <DifficultyCard key={level.title} level={level} />
                             ))}
                         </div>
                     </div>
-                </main>
-                <Footer/>
-            </div>
+                </div>
+            </main>
 
-        </>
-
-
+            <Footer />
+        </div>
     );
 }
 

@@ -33,20 +33,19 @@ class saveFinalAVG{
     public function getTopTenUsers($limit = 10)
     {
         $query = "SELECT u.username, u.id, f.finalAvgTime as score 
-                  FROM finalaveragetime f
-                  JOIN userdetails u ON f.user_id = u.id
-                  ORDER BY f.finalAvgTime DESC
-                  LIMIT ?";
+              FROM finalaveragetime f
+              JOIN userdetails u ON f.user_id = u.id
+              ORDER BY f.finalAvgTime DESC
+              LIMIT :limit";
 
-
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $limit);
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $leaderboard = [];
         $rank = 1;
-        while ($row = $result->fetch_assoc()) {
+        foreach ($result as $row) {
             $leaderboard[] = [
                 'id' => $rank++,
                 'user_id' => $row['id'],
@@ -58,6 +57,7 @@ class saveFinalAVG{
 
         return $leaderboard;
     }
+
     private function getInitials($name)
     {
         $names = explode(' ', $name);
