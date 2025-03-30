@@ -81,7 +81,9 @@ const EasySection = () => {
         }
 
         if (currentIndex + 1 === snippets.length) {
-            const userId = localStorage.getItem("user_id");
+            const userData = JSON.parse(localStorage.getItem("user"));
+            const userId = userData.id;
+            console.log(userId);
             const difficulty = "easy";
             const avgTime = averageCompletionTime;
 

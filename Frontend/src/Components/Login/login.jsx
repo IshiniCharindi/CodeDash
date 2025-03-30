@@ -14,13 +14,21 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-  
+
       const data = await response.json();
       if (data.status) {
-        localStorage.setItem("username", JSON.stringify({ username }));
+        // Store user data in localStorage
+        localStorage.setItem("user", JSON.stringify({
+          id: data.user.id, // Accessing the id from the user object
+          username: data.user.username // Accessing the username from the user object
+        }));
 
         alert("Login successful");
-        if (username.toLowerCase() === "admin") {
+        // const userData = JSON.parse(localStorage.getItem("user"));
+        // const userId = userData.id;
+        // const username = userData.username;
+        // console.log(userId,username);
+        if (data.user.username.toLowerCase() === "admin") {
           navigate("/admin");
         } else {
           navigate("/home");

@@ -74,9 +74,8 @@ const MediumSection = () => {
         }
 
         if (currentIndex + 1 === snippets.length) {
-            localStorage.setItem("user_id", "1");
-
-            const userId = localStorage.getItem("user_id");
+            const userData = JSON.parse(localStorage.getItem("user"));
+            const userId = userData.id;
             console.log(userId);
             const difficulty = "Medium";
             const avgTime = averageCompletionTime;
@@ -173,7 +172,7 @@ const MediumSection = () => {
                                 ) : (
                                     <div>
                                         <h3>Average Completion Time: {averageCompletionTime} seconds</h3>
-                                        <a href="/medium">
+                                        <a href="/difficult">
                                             <button className="px-4 bg-[#598392] hover:bg-[#124559] text-white rounded-lg transition-colors backdrop-blur-sm">Move to Difficult Section</button>
                                         </a>
                                     </div>)}
