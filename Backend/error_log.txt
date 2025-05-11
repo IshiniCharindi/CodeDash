@@ -484,3 +484,82 @@ Stack trace:
 [30-Mar-2025 09:38:10 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
 [30-Mar-2025 09:39:20 Europe/Berlin] Fetched Speeds: Easy=0, Medium=0, Difficult=0
 [30-Mar-2025 09:39:20 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:21:10 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:21:10 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:21:10 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:21:10 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:21:23 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:21:23 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:21:23 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:21:23 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:21:25 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:21:25 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:21:25 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:21:25 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:26:40 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:26:40 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:26:40 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:26:40 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:26:42 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:26:42 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:26:42 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:26:42 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:29:08 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:29:08 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:29:08 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:29:08 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:29:11 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:29:11 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:29:11 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:29:11 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:29:24 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:29:24 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:29:24 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:29:24 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:29:25 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:29:25 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:29:25 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:29:25 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:44:36 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:44:36 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:44:36 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:44:36 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:44:38 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:44:38 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:44:38 Europe/Berlin] Calculated WPM: Easy=0.3375, Medium=0, Difficult=0
+[04-Apr-2025 22:44:38 Europe/Berlin] Final Typing Speed: 0.3375
+[04-Apr-2025 22:50:29 Europe/Berlin] Starting calculation for user: 8
+[04-Apr-2025 22:50:29 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:50:29 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:50:29 Europe/Berlin] Calculated WPM: Easy=1215, Medium=0, Difficult=0
+[04-Apr-2025 22:50:29 Europe/Berlin] Final Typing Speed: 1215
+[04-Apr-2025 22:50:29 Europe/Berlin] Failed to save final average time: {"success":false,"message":"Database error","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'last_updated' in 'field list'"}
+[04-Apr-2025 22:50:29 Europe/Berlin] Error in TypingSpeedController: Failed to save data: Database error
+[04-Apr-2025 22:50:38 Europe/Berlin] Starting calculation for user: 8
+[04-Apr-2025 22:50:38 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:50:38 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:50:38 Europe/Berlin] Calculated WPM: Easy=1215, Medium=0, Difficult=0
+[04-Apr-2025 22:50:38 Europe/Berlin] Final Typing Speed: 1215
+[04-Apr-2025 22:50:38 Europe/Berlin] Failed to save final average time: {"success":false,"message":"Database error","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'last_updated' in 'field list'"}
+[04-Apr-2025 22:50:38 Europe/Berlin] Error in TypingSpeedController: Failed to save data: Database error
+[04-Apr-2025 22:50:58 Europe/Berlin] Starting calculation for user: 8
+[04-Apr-2025 22:50:58 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:50:58 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:50:58 Europe/Berlin] Calculated WPM: Easy=1215, Medium=0, Difficult=0
+[04-Apr-2025 22:50:58 Europe/Berlin] Final Typing Speed: 1215
+[04-Apr-2025 22:50:58 Europe/Berlin] Failed to save final average time: {"success":false,"message":"Database error","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'last_updated' in 'field list'"}
+[04-Apr-2025 22:50:58 Europe/Berlin] Error in TypingSpeedController: Failed to save data: Database error
+[04-Apr-2025 22:51:01 Europe/Berlin] Starting calculation for user: 8
+[04-Apr-2025 22:51:01 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:51:01 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:51:01 Europe/Berlin] Calculated WPM: Easy=1215, Medium=0, Difficult=0
+[04-Apr-2025 22:51:01 Europe/Berlin] Final Typing Speed: 1215
+[04-Apr-2025 22:51:01 Europe/Berlin] Failed to save final average time: {"success":false,"message":"Database error","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'last_updated' in 'field list'"}
+[04-Apr-2025 22:51:01 Europe/Berlin] Error in TypingSpeedController: Failed to save data: Database error
+[04-Apr-2025 22:51:28 Europe/Berlin] Starting calculation for user: 8
+[04-Apr-2025 22:51:28 Europe/Berlin] Fetched Speeds: Easy=4, Medium=0, Difficult=0
+[04-Apr-2025 22:51:28 Europe/Berlin] Fetched Word Counts: Easy=81, Medium=202, Difficult=456
+[04-Apr-2025 22:51:28 Europe/Berlin] Calculated WPM: Easy=1215, Medium=0, Difficult=0
+[04-Apr-2025 22:51:28 Europe/Berlin] Final Typing Speed: 1215
+[04-Apr-2025 22:51:28 Europe/Berlin] Failed to save final average time: {"success":false,"message":"Database error","error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'last_updated' in 'field list'"}
+[04-Apr-2025 22:51:28 Europe/Berlin] Error in TypingSpeedController: Failed to save data: Database error

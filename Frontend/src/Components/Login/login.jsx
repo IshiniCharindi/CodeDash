@@ -24,10 +24,10 @@ function Login() {
         }));
 
         alert("Login successful");
-        // const userData = JSON.parse(localStorage.getItem("user"));
-        // const userId = userData.id;
-        // const username = userData.username;
-        // console.log(userId,username);
+        const userData = JSON.parse(localStorage.getItem("user"));
+        const userId = userData.id;
+        const username = userData.username;
+        console.log(userId,username);
         if (data.user.username.toLowerCase() === "admin") {
           navigate("/admin");
         } else {

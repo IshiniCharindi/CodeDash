@@ -17,19 +17,24 @@ const UserDashboard = () => {
     });
 
     useEffect(() => {
-        const userSession = localStorage.getItem("username");
+        // const userSession = localStorage.getItem("username");
+        const userData = JSON.parse(localStorage.getItem("user"));
+        // const userId = userData.id;
+        const username = userData.username;
+        console.log(username);
 
-        if (userSession) {
+        if (username) {
             try {
-                const parsedUser = JSON.parse(userSession);
-                console.log("Parsed user data:", parsedUser);
 
-                if (parsedUser?.username) {
-                    setUsername(parsedUser.username);
+                console.log("Parsed user data:", username);
+
+                if (username) {
+                    setUsername(username);
+                    console.log("seconduser data:", username);
 
                     // Send username to backend
                     axios.post("http://localhost/CodeDash/Backend/Controllers/getUserId.php", {
-                        username: parsedUser.username
+                        username: username
                     })
                         .then(response => {
                             console.log("Backend response:", response.data); // Debugging

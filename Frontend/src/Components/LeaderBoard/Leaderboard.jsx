@@ -114,7 +114,7 @@ function Leaderboard() {
                     <div className="space-y-4">
                         {remainingPlayers.map((player, index) => (
                             <div
-                                key={player.user_id}
+                                key={`${player.user_id}-${player.difficulty_level}`}
                                 className="bg-[#1B263B] rounded-lg p-4 flex items-center justify-between"
                             >
                                 <div className="flex items-center gap-4">
